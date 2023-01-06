@@ -168,7 +168,7 @@ function Sidebar({ color, image, routes, categories, setCategories }) { // 'rout
             <Button size="sm" className="w-75 text-center mt-2 mb-2" variant="outline-light" onClick={addCategory}>+ Add New Category</Button> 
             : 
             <Form onSubmit={onSubmit}>
-              <Form.Control size="sm" id="new-category" ref={categoryRef} type='text' 
+              <Form.Control maxLength="40" size="sm" id="new-category" ref={categoryRef} type='text' 
               value={cat.categoryName} 
               onChange={ (e) => handleAddCategory({ categoryName: e.target.value }) }
               placeholder="Type New Category Name"
