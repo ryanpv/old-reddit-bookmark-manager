@@ -36,9 +36,9 @@ const SearchResultData = (props) => {
           </Link>}
       </td>
       <td>{ !props.searchResult.categoryName ? 
-              <Button variant="outline-primary" onClick={() => btnClick({ name: props.listItem.name, pathname: props.listItem.permalink, title: props.listItem.title,
-                author: props.listItem.author, subreddit: props.listItem.subreddit_name_prefixed, body: props.listItem.body, link_title: props.listItem.link_title, 
-                over_18: props.listItem.over_18 })}
+              <Button variant="outline-primary" onClick={() => btnClick({ name: props.searchResult.name, pathname: props.searchResult.permalink, title: props.searchResult.title,
+                author: props.searchResult.author, subreddit: props.searchResult.subreddit_name_prefixed, body: props.searchResult.body, link_title: props.searchResult.link_title, 
+                over_18: props.searchResult.over_18 })}
                 >+</Button> : null
       }</td>
     </tr>
