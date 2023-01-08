@@ -2,6 +2,7 @@ import Pagination from 'layouts/Pagination';
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext'
+import { submitBookmark } from '../../views/AllBookmarks'
 
 export default function SearchResults() {
   const { searchResponse, currentPage, setCurrentPage } = useAuth();
@@ -10,6 +11,14 @@ export default function SearchResults() {
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentPosts = searchResponse?.slice(indexOfFirstPost, indexOfLastPost);
+  const [show, setShow] = React.useState(false);
+  const handleClose = () => setShow(false);
+  const [postData, setPostData] = React.useState({})
+  const [postItem, setPostItem] = React.useState(
+    {
+    categoryName: "",
+    categoryId: ""
+   })
   
 const SearchResultData = (props) => {
   
@@ -24,8 +33,19 @@ const SearchResultData = (props) => {
           { props.searchResult.title || props.searchResult.link_title }
           </Link>}
       </td>
+      <td>{ !props.searchResult.categoryName ? 
+              <Button variant="outline-primary" onClick={() => btnClick({ name: props.listItem.name, pathname: props.listItem.permalink, title: props.listItem.title,
+                author: props.listItem.author, subreddit: props.listItem.subreddit_name_prefixed, body: props.listItem.body, link_title: props.listItem.link_title, 
+                over_18: props.listItem.over_18 })}
+                >+</Button> : null
+      }</td>
     </tr>
   )
+}
+
+const btnClick = async(value) => { // btn click will store the value into state, which we can then use to pass info to submitBookmark()
+  await setShow(show => !show);
+  await setPostData(value);
 }
 
 const displaySearchResult = () => {
@@ -58,6 +78,11 @@ const displaySearchResult = () => {
 
     <div>
       <Pagination postsPerPage={ postsPerPage } totalPosts={ searchResponse.length } />
+    </div>
+
+    <div>
+    <PostModal show={show} handleClose={handleClose} list={"categoryName"} submitBookmark={submitBookmark} postItem={postItem} setPostItem={setPostItem} 
+      postData={postData} />
     </div>
     
     </>

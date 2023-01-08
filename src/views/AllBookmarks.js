@@ -177,7 +177,7 @@ export default function AllBookmarks() {
 
     { currentUser ?
     <>
-    <Button variant="warning" size="md" onClick={ () => { openLogin() } }>Reddit Login</Button>{ <i> Login to Reddit to see your saved posts</i> }
+    <Button variant="warning" size="md" onClick={ () => { openLogin() } }>Reddit Login</Button>{ <i> Login to Reddit to see your saved posts. (Click on the 'Load Bookmarks' button after logging into reddit)</i> }
 
     <div>
 
