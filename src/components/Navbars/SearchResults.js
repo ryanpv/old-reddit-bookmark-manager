@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext'
 import submitBookmark from '../../views/AllBookmarks'
 import { PostModal } from 'components/Modals/PostModal';
+import { Button } from 'react-bootstrap';
 
 export default function SearchResults() {
   const { searchResponse, currentPage, setCurrentPage } = useAuth();
