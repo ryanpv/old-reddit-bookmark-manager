@@ -49,7 +49,7 @@ const CategoryContent = () => {
       if(getCategoryId.categoryName) {
         // console.log(getCategoryId);
         // const skipNum = parseInt(documentCount)
-        const singleDoc = await fetch(`http://localhost:4554/querycategory/${getCategoryId._id}/${documentCount}`, {
+        const singleDoc = await fetch(`https://saveredd-api.onrender.com/querycategory/${getCategoryId._id}/${documentCount}`, {
             headers: {
               Authorization: `Bearer ${token}`
             }
@@ -87,7 +87,7 @@ const CategoryContent = () => {
 
 
   async function deleteBookmark(bookmarkId) {
-    await fetch(`http://localhost:4554/remove-bookmark/${bookmarkId}`, {
+    await fetch(`https://saveredd-api.onrender.com/remove-bookmark/${bookmarkId}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`

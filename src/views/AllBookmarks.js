@@ -83,7 +83,7 @@ export default function AllBookmarks() {
     async function openLogin() {
       try {
         await window.open(
-          `https://www.reddit.com/api/v1/authorize?client_id=${clientid}&response_type=code&state=rvreddapp&redirect_uri=http://localhost:3000/log_callback&duration=permanent&scope=identity+history`,
+          `https://www.reddit.com/api/v1/authorize?client_id=${clientid}&response_type=code&state=rvreddapp&redirect_uri=http://https://saveredd.onrender.com/log_callback&duration=permanent&scope=identity+history`,
           "_self"
         )
       } catch (error) {
@@ -93,7 +93,7 @@ export default function AllBookmarks() {
 
   // Retrieve users' saved posts/comments
   async function getRedditPosts() {
-    const fetchRequest = await fetch("http://localhost:4554/saved-reddit-posts", 
+    const fetchRequest = await fetch("https://saveredd-api.onrender.com/saved-reddit-posts", 
     { credentials: "include" }
     )
     .then(res => res)
@@ -150,7 +150,7 @@ export default function AllBookmarks() {
 
       //next steps, fetch the category and update the list[] field. need to push into array?
       // await fetch(`http://localhost:4554/update/${_id}`, {
-      await fetch(`http://localhost:4554/addbookmark`, {
+      await fetch(`https://saveredd-api.onrender.com/addbookmark`, {
         method: 'POST',
         headers: {
           "Content-Type": "application/json",

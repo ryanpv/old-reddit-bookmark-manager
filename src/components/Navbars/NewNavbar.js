@@ -23,7 +23,7 @@ export default function NewNavbar() {
     
   } else {
 
-    const bookmarkSearch = await fetch(`http://localhost:4554/bookmarks/${searchRef.current.value}`, {
+    const bookmarkSearch = await fetch(`https://saveredd-api.onrender.com/bookmarks/${searchRef.current.value}`, {
       headers: {
         Authorization: `Bearer ${token}`
       },

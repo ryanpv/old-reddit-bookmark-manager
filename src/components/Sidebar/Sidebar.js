@@ -35,7 +35,7 @@ function Sidebar({ color, image, routes, categories, setCategories }) { // 'rout
 
       if(token) {
 
-      const response = await fetch("http://localhost:4554/categorylist", {
+      const response = await fetch("https://saveredd-api.onrender.com/categorylist", {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -74,7 +74,7 @@ function Sidebar({ color, image, routes, categories, setCategories }) { // 'rout
 
     } else if (duplicateCheck.length < 1 && newCategory) {
 
-    await fetch("http://localhost:4554/categorylist/add", {
+    await fetch("https://saveredd-api.onrender.com/categorylist/add", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

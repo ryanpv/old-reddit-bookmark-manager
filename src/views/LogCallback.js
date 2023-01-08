@@ -12,7 +12,7 @@ export default function LogCallback() {
     const code = `${location.search.split('=')[2]}`
 
     async function redditToken() {
-      const response = await fetch(`http://localhost:4554/log_callback?code=${code}`, {credentials:"include"})
+      const response = await fetch(`https://saveredd-api.onrender.com/log_callback?code=${code}`, {credentials:"include"})
 
     }
     redditToken()

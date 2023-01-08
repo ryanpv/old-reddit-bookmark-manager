@@ -43,7 +43,7 @@ function CategoryList({ categories, setCategories }) { // states are [categories
 
     if (delInputValue.string === categoryName) {
 
-    await fetch(`http://localhost:4554/remove-category/${ categoryName }`, {
+    await fetch(`https://saveredd-api.onrender.com/remove-category/${ categoryName }`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`
