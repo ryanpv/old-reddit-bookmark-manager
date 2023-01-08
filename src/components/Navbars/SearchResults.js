@@ -2,7 +2,7 @@ import Pagination from 'layouts/Pagination';
 import React from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext'
-import { submitBookmark } from '../../views/AllBookmarks'
+import submitBookmark from '../../views/AllBookmarks'
 
 export default function SearchResults() {
   const { searchResponse, currentPage, setCurrentPage } = useAuth();
