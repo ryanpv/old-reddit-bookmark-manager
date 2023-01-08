@@ -1,8 +1,7 @@
 import Pagination from 'layouts/Pagination';
 import React from 'react'
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext'
-import submitBookmark from '../../views/AllBookmarks'
 import { PostModal } from 'components/Modals/PostModal';
 import { Button } from 'react-bootstrap';
 
@@ -48,6 +47,38 @@ const SearchResultData = (props) => {
 const btnClick = async(value) => { // btn click will store the value into state, which we can then use to pass info to submitBookmark()
   await setShow(show => !show);
   await setPostData(value);
+}
+
+async function submitBookmark(e) {
+  e.preventDefault();
+  
+  const categoryIdName = categories.map(category => category.categoryName.toUpperCase()) 
+  
+  try {
+    if (categoryIdName.includes(postItem.categoryName.toUpperCase())) {
+      const categoryFilter = categories?.filter(category => category.categoryName === postItem.categoryName)
+      const catId = categoryFilter.map(el => el._id).toString()
+
+    handleClose();
+    setPostItem({
+      categoryName: "",
+      categoryId: ""
+     });
+
+    await fetch(`https://saveredd-api.onrender.com/addbookmark`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({...postItem, categoryId: catId})
+    });
+    
+  } else {alert('category does NOT exist OR check spelling - case sensitive')}
+
+} catch (error) {
+  console.log(error);
+}
 }
 
 const displaySearchResult = () => {
