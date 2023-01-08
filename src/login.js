@@ -65,7 +65,7 @@ export default function Login() {
               <Form.Control type="password" ref={passwordRef} required />
             </Form.Group>
 
-            <Button variant="outline-primary" disabled={loading} className='w-100 mt-2' type='submit'>Log In</Button>
+            <Button variant="outline-primary" disabled={loading} className='w-100 mt-2' type='submit'>Log In.</Button>
           </Form>
 
           <div className='w-100 text-center mt-3'>
