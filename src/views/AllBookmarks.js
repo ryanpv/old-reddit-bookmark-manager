@@ -83,7 +83,7 @@ export default function AllBookmarks() {
     async function openLogin() {
       try {
         await window.open(
-          `https://www.reddit.com/api/v1/authorize?client_id=${clientid}&response_type=code&state=rvreddapp&redirect_uri=http://https://saveredd.onrender.com/log_callback&duration=permanent&scope=identity+history`,
+          `https://www.reddit.com/api/v1/authorize?client_id=${clientid}&response_type=code&state=rvreddapp-prod&redirect_uri=http://https://saveredd.onrender.com/log_callback&duration=permanent&scope=identity+history`,
           "_self"
         )
       } catch (error) {
@@ -225,7 +225,7 @@ export default function AllBookmarks() {
   submitBookmark={submitBookmark} postItem={postItem} setPostItem={setPostItem} postData={postData} />
     </div>
 
-    *****ENSURE REDDIT TOKEN REVOKED AND STATE REMOVED*****
+    {/* *****ENSURE REDDIT TOKEN REVOKED AND STATE REMOVED***** */}
     {/* do a check if data has been rendered, if not then button shows. also, if no saved bookmarks, then return a string saying so  */}
     </>
 
