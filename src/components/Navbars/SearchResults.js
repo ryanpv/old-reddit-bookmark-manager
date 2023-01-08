@@ -3,6 +3,7 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext'
 import submitBookmark from '../../views/AllBookmarks'
+import { PostModal } from 'components/Modals/PostModal';
 
 export default function SearchResults() {
   const { searchResponse, currentPage, setCurrentPage } = useAuth();
