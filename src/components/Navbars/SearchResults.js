@@ -6,7 +6,8 @@ import { PostModal } from 'components/Modals/PostModal';
 import { Button } from 'react-bootstrap';
 
 export default function SearchResults() {
-  const { searchResponse, currentPage, categories } = useAuth();
+  const { searchResponse, currentPage, categories, currentUser } = useAuth();
+  const token = currentUser && currentUser._delegate.accessToken
   const baseUrl = 'https://www.reddit.com'
   const [postsPerPage, setPostsPerPage] = React.useState(5);
   const indexOfLastPost = currentPage * postsPerPage;
