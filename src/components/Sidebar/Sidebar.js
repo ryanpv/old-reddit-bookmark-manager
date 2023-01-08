@@ -44,7 +44,7 @@ function Sidebar({ color, image, routes, categories, setCategories }) { // 'rout
 
       await setCategories(categoryRecords)
     } else { 
-    console.log("not logged in/token not fetched yet") 
+    // console.log("not logged in/token not fetched yet") 
     }
   } 
     getCategoryList(token)
@@ -117,7 +117,7 @@ function Sidebar({ color, image, routes, categories, setCategories }) { // 'rout
     e.preventDefault();
 
     const categoryNameId = categories.map(category => category.categoryName)
-    console.log(categoryNameId);
+    // console.log(categoryNameId);
 
     if (categoryNameId.includes(inputSearch.current.value)) {
       history.push(`/admin/category/${inputSearch.current.value}`)

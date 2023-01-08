@@ -52,7 +52,7 @@ function CategoryList({ categories, setCategories }) { // states are [categories
     const newList = categories.filter((category) => category.categoryName !== categoryName);
     setCategories(newList);
     history.push(`/admin/profile`)
-    console.log("leftover categories", newList.length);
+    // console.log("leftover categories", newList.length);
     handleClose();
 
   } else {

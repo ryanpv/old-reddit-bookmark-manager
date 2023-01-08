@@ -102,7 +102,7 @@ export default function AllBookmarks() {
     
     // const fetchedData = await fetchRequest.json()
     await setSavedList(fetchRequest)
-    console.log("refresh success");
+    // console.log("refresh success");
     // console.log(savedList); // response array
   }
 
@@ -121,7 +121,7 @@ export default function AllBookmarks() {
   const btnClick = async(value) => { // btn click will store the value into state, which we can then use to pass info to submitBookmark()
     await setShow(show => !show);
     await setPostData(value);
-    console.log(value);
+    // console.log(value);
   }
   
   async function submitBookmark(e) {
@@ -132,7 +132,7 @@ export default function AllBookmarks() {
     // const _id = keyId[0]._id;
     // accessing the _id through this method since the filter should return an array with only a single obj
     // can map() toUpperCase to categoryId for case insensitivity *** better for search
-    console.log(categoryIdName);
+    // console.log(categoryIdName);
 
     
     try {

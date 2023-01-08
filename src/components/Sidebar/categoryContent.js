@@ -41,7 +41,7 @@ const CategoryContent = () => {
 
       // setCategoryIdData(getCategoryId);
       if(filterCategoryData.length < 1) {
-        console.log('non-existent category');
+        // console.log('non-existent category');
         // history.push('/admin/profile');
         // create component that will navigate to a page does not exist**********
       } else
@@ -61,7 +61,7 @@ const CategoryContent = () => {
         // console.log(docRecord);
         // await setTotalPosts(docRecord.count)
         // console.log(docRecord.count, "-", documentCount);
-        console.log("useeffect rerendered");
+        // console.log("useeffect rerendered");
       };
     };
     getContentData();
@@ -113,7 +113,7 @@ const CategoryContent = () => {
   async function hyperLinkClick(value) { // pass in the prop's pathname
 
   setShowText(false) // using this state to reduce amount of visible text on each link click from textContent - will allow users to see reduced text each click
-  console.log(showText);
+  // console.log(showText);
 
   if (value.body !== "") {
     setCommentBody({body: value.body, author: value.author})
@@ -150,7 +150,7 @@ const CategoryContent = () => {
       setImageContent({})
       setVideoContent({})
       setNSFWContent({})
-      console.log('tis a gallery');
+      // console.log('tis a gallery');
       break;
     case (contentFetch[0][0].data.is_video || contentFetch[0][0].data.post_hint === "rich:video"):
       setVideoContent(contentFetch[0][0].data)
@@ -295,7 +295,12 @@ const CategoryContent = () => {
                         </video>
                         : null }                      
 
-                      { galleryContent.url ? <Link to={{pathname: `${galleryContent.url}`}} target="_blank">View image gallery</Link> : null }
+                      { galleryContent.url ? 
+                      <>
+                      <p>Reddit image galleries must be viewed in separate window.</p>
+                      <Link to={{pathname: `${galleryContent.url}`}} target="_blank">Click this link if you wish to continue</Link> 
+                      </>
+                      : null }
                       
                       { NSFWContent.is_video &&
                         <video controls width="250" key={ NSFWContent.url }>

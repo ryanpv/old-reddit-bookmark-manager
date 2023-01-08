@@ -28,7 +28,7 @@ export function AuthProvider({ children }) {
   function logout() {
     setCurrentUser("")
     setCategories([])
-    console.log("signed out");
+    console.log("user signed out");
     return auth.signOut()
   }
 
