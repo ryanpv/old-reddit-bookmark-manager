@@ -7,7 +7,7 @@ import { PostModal } from 'components/Modals/PostModal';
 import { Button } from 'react-bootstrap';
 
 export default function SearchResults() {
-  const { searchResponse, currentPage, setCurrentPage } = useAuth();
+  const { searchResponse, currentPage, categories } = useAuth();
   const baseUrl = 'https://www.reddit.com'
   const [postsPerPage, setPostsPerPage] = React.useState(5);
   const indexOfLastPost = currentPage * postsPerPage;
@@ -81,6 +81,10 @@ const displaySearchResult = () => {
     <div>
       <Pagination postsPerPage={ postsPerPage } totalPosts={ searchResponse.length } />
     </div>
+
+    <datalist id='categoryName'>
+      { categories?.map(results => { return (<option key={results._id}>{results.categoryName}</option> ) }) }
+    </datalist>
 
     <div>
     <PostModal show={show} handleClose={handleClose} list={"categoryName"} submitBookmark={submitBookmark} postItem={postItem} setPostItem={setPostItem} 
