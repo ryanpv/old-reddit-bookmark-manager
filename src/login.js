@@ -8,7 +8,6 @@ import { auth } from './firebase';
 export default function Login() {
   const emailRef = useRef()
   const passwordRef = useRef()
-  const clientid = 'aB3skwrem_otJPlHcxu5IQ';
 
   const { login, currentUser } = useAuth()
   const [error, setError] = useState('')

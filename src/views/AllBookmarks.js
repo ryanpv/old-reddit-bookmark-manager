@@ -83,8 +83,7 @@ export default function AllBookmarks() {
     async function openLogin() {
       try {
         await window.open(
-          `https://www.reddit.com/api/v1/authorize?client_id=${clientid}&response_type=code&state=rvreddapp-prod&redirect_uri=https://saveredd.onrender.com/log_callback&duration=permanent&scope=identity+history`,
-          "_self"
+          `https://www.reddit.com/api/v1/authorize?client_id=${clientid}&response_type=code&state=rvreddapp-prod&redirect_uri=https://saveredd.onrender.com/log_callback&duration=permanent&scope=identity+history`
         )
       } catch (error) {
         console.log(error);
